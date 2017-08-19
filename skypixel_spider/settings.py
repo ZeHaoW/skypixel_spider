@@ -14,6 +14,7 @@ BOT_NAME = 'skypixel_photos'
 SPIDER_MODULES = ['skypixel_photos.spiders']
 NEWSPIDER_MODULE = 'skypixel_photos.spiders'
 
+IMAGES_STORE = '/skypixel_spider/spiders/photos'
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
 #USER_AGENT = 'skypixel_photos (+http://www.yourdomain.com)'
@@ -64,9 +65,9 @@ ROBOTSTXT_OBEY = True
 
 # Configure item pipelines
 # See http://scrapy.readthedocs.org/en/latest/topics/item-pipeline.html
-#ITEM_PIPELINES = {
-#    'skypixel_photos.pipelines.SkypixelPhotosPipeline': 300,
-#}
+ITEM_PIPELINES = {
+    'skypixel_spider.pipelines.SkypixelPhotosPipeline': 1,
+}
 
 # Enable and configure the AutoThrottle extension (disabled by default)
 # See http://doc.scrapy.org/en/latest/topics/autothrottle.html
