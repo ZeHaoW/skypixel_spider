@@ -1,12 +1,13 @@
 import scrapy
-from skypixel_photos.items import SkypixelPhotosItem
+from scrapy import Request
+from skypixel_spider.items import SkypixelPhotosItem
 
-class SkypixelSpider(object):
+class SkypixelSpider(scrapy.Spider):
     name = "skypixel_photos_task"
     count = 1
     start_urls = ["https://www.skypixel.com/api/website/resources/photos?page=%s&page_size=12"]
-    ITEM_PIPELINES = {'skypixel_photos.pipelines.SkypixelPhotosPipeline': 1}
-    IMAGES_STORE = 'skypixel_photos/spiders/photos'
+    ITEM_PIPELINES = {'skypixel_spider.pipelines.SkypixelPhotosPipeline': 1}
+    IMAGES_STORE = '/skypixel_spider/spiders/photos'
     IMAGE_EXPIRES = 90
 
     def parse(self, response):
