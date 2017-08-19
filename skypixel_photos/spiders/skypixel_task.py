@@ -13,7 +13,7 @@ class SkypixelSpider(object):
         item = SkypixelPhotosItem()
         item['imageurls'] = []
         jsonObj = json.loads(response.body_as_unicode())
-        jars = jsonObj.['items']
+        jars = jsonObj['items']
         for n in jars:
             photo_url = n['image'] + '@!1200'
             item['imageurls'].append(photo_url)
